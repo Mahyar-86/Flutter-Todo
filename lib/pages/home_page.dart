@@ -12,10 +12,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  //make hive and database instance
   final _myBox = Hive.box("myBox");
   ToDoDataBase db = ToDoDataBase();
 
   @override
+  //check if run app for the first time create a database, if not just load that 
   void initState() {
     if (_myBox.get("TODOLIST") == null) {
       db.createInitialData();
@@ -24,7 +26,7 @@ class _HomePageState extends State<HomePage> {
     }
     super.initState();
   }
-
+  //update checkbox status
   void checkBoxChanged(bool? value, int index) {
     setState(() {
       db.toDoList[index][1] = value!;
@@ -33,7 +35,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   final _controller = TextEditingController();
-
+  
+  //save new task function
   void saveNewTask() {
     setState(() {
       db.toDoList.add([_controller.text, false]);
@@ -43,6 +46,7 @@ class _HomePageState extends State<HomePage> {
     Navigator.of(context).pop();
   }
 
+  //create a panel to add new task
   void createNewTask() {
     showDialog(
         context: context,
@@ -54,7 +58,7 @@ class _HomePageState extends State<HomePage> {
           );
         });
   }
-
+  //delete task function
   void deleteTask(int index) {
     setState(() {
       db.toDoList.removeAt(index);
@@ -65,15 +69,19 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //set background color
       backgroundColor: Colors.yellow[200],
+      // make an appbar
       appBar: AppBar(
         centerTitle: true,
         title: Text("To Do"),
       ),
+      //create a floating action button to add task
       floatingActionButton: FloatingActionButton(
         onPressed: createNewTask,
         child: const Icon(Icons.add),
       ),
+      //crate a list view to show tasks
       body: ListView.builder(
         itemCount: db.toDoList.length,
         itemBuilder: (context, index) {

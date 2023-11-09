@@ -5,6 +5,7 @@ class ToDoDataBase {
 
   final _myBox = Hive.box("myBox");
 
+  //set default database 
   void createInitialData() {
     toDoList = [
       ["Welcome to this App!", false],
@@ -12,10 +13,12 @@ class ToDoDataBase {
     ];
   }
 
+  //load database
   void loadDataBase() {
     toDoList = _myBox.get("TODOLIST");
   }
 
+  //update new changes in database
   void updateDataBase() {
     _myBox.put("TODOLIST", toDoList);
   }
