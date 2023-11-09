@@ -32,6 +32,8 @@ class DialogBox extends StatelessWidget {
                     border: OutlineInputBorder(),
                     hintText: "Type Task Name..."
                     ),
+                    autofocus: true,
+                    cursorColor: Colors.black,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
