@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   ToDoDataBase db = ToDoDataBase();
 
   @override
-  //check if run app for the first time create a database, if not just load that 
+  //check if run app for the first time create a database, if not just load that
   void initState() {
     if (_myBox.get("TODOLIST") == null) {
       db.createInitialData();
@@ -26,6 +26,7 @@ class _HomePageState extends State<HomePage> {
     }
     super.initState();
   }
+
   //update checkbox status
   void checkBoxChanged(bool? value, int index) {
     setState(() {
@@ -35,7 +36,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   final _controller = TextEditingController();
-  
+
   //save new task function
   void saveNewTask() {
     setState(() {
@@ -52,12 +53,15 @@ class _HomePageState extends State<HomePage> {
         context: context,
         builder: (context) {
           return DialogBox(
-            controller: _controller,
-            onSave: saveNewTask,
-            onCancel: () => Navigator.of(context).pop(),
-          );
+              controller: _controller,
+              onSave: saveNewTask,
+              onCancel: () {
+                _controller.clear();
+                Navigator.of(context).pop();
+              });
         });
   }
+
   //delete task function
   void deleteTask(int index) {
     setState(() {
