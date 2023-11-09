@@ -1,16 +1,14 @@
-# todo
+# Flutter Todo App
 
-A new Flutter project.
+Its my new flutter project, a todo app!
+you can Add Delete and check the task
 
-## Getting Started
+Do you want to learn create like this? [check it out](https://youtu.be/HQ_ytw58tC4?feature=shared)
 
-This project is a starting point for a Flutter application.
+## Screen Shots
 
-A few resources to get you started if this is your first Flutter project:
+![1699516895927](image/README/1699516895927.png)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+![1699516908555](image/README/1699516908555.png)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![1699516920015](image/README/1699516920015.png)
